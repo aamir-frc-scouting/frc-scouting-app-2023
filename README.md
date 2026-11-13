@@ -40,11 +40,11 @@ Sophomore year, I took over as the solo developer. This was my first time owning
     <td align="center"><img src="docs/screenshots/02_auto.png" width="180"/><br/><b>Autonomous</b></td>
     <td align="center"><img src="docs/screenshots/03_tele.png" width="180"/><br/><b>Teleoperated</b></td>
     <td align="center"><img src="docs/screenshots/04_endgame.png" width="180"/><br/><b>Endgame</b></td>
-    <td align="center"><img src="docs/screenshots/05_qr_cropped.png" width="180"/><br/><b>QR Output</b></td>
+    <td align="center"><img src="docs/screenshots/05_qr.png" width="180"/><br/><b>QR Output</b></td>
   </tr>
 </table>
 
-<sub>Screenshots rendered via <a href="https://github.com/cashapp/paparazzi">Paparazzi</a> layout testing. The QR screen shows the placeholder image; in actual use, it displays the generated QR code.</sub>
+<sub>Screenshots rendered via <a href="https://github.com/cashapp/paparazzi">Paparazzi</a> layout testing. The QR code contains a sample payload for demo team 99901.</sub>
 
 ## Architecture
 
