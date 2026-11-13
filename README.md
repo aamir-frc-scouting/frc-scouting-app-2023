@@ -1,15 +1,15 @@
-# FRC 2023 Charged Up Scouting App
+# FRC 2023 Charged Up Match Scouting App
 
 <div align="center">
 
-[![Android](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com/)
-[![Java](https://img.shields.io/badge/Java_8-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://www.java.com/)
-[![API 21+](https://img.shields.io/badge/API-21%2B-brightgreen?style=for-the-badge)](https://developer.android.com/about/versions/lollipop)
-[![FRC 2023](https://img.shields.io/badge/FRC-2023_Charged_Up-fbb617?style=for-the-badge)](https://www.firstinspires.org/robotics/frc)
+[![Platform-Android](https://img.shields.io/badge/Platform-Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://developer.android.com/studio)
+[![Java](https://img.shields.io/badge/Java_8-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)](https://docs.oracle.com/javase/8/docs/)
+[![API 21+](https://img.shields.io/badge/API-21%2B-brightgreen?style=for-the-badge)](https://developer.android.com/tools/releases/platforms)
+[![FRC 2023](https://img.shields.io/badge/FRC-2023_Charged_Up-fbb617?style=for-the-badge)](https://firstfrc.blob.core.windows.net/frc2023/Manual/2023FRCGameManual.pdf)
 
 **Android app that encodes robot performance data into QR codes for offline scouting at FRC competitions.**
 
-[Features](#features) · [Architecture](#architecture) · [Usage Stats](#2023-season-usage-stats) · [Build](#build-instructions)
+[Features](#features) · [Screenshots](#screenshots) · [Architecture](#architecture) · [Usage Stats](#usage-stats) · [Build](#build-instructions)
 
 </div>
 
@@ -17,11 +17,30 @@
 
 ## Background
 
-As a freshman on [FRC Team 1730 (Team Driven)](https://www.thebluealliance.com/team/1730), I served as a scout lead and fell in love with scouting and strategy. Seniors Heath Crump and Caden Findlay led the 2022 scouting app that year, and I learned the ropes working under them.
+My freshman year (2022 Rapid React), I served as scout lead for [FRC Team 1730](https://www.thebluealliance.com/team/1730/2022) and fell in love with scouting and strategy. Seniors Heath Crump and Caden Findlay led the scouting app that season while the team won the [Newton Division](https://www.thebluealliance.com/event/2022new) and [advanced to Einstein](https://www.thebluealliance.com/event/2022cmptx). I learned the ropes working under them.
 
-Sophomore year, I took over as the solo developer. This was my first time owning an Android codebase end-to-end — Java, XML layouts, QR encoding, the whole pipeline into Excel. I learned a lot, struggled a lot, and got it done. The app ran at two regionals and Houston Championship, capturing 58,000+ data points across 312 matches.
+Sophomore year, I took over as the solo developer for the 2023 Charged Up season. This was my first time owning an Android codebase end-to-end — Java, XML layouts, QR encoding, the whole pipeline into Excel. I learned a lot, struggled a lot, and got it done. The app ran at two regionals and Houston Championship, capturing 58,000+ data points across 312 matches.
 
-— [Aamir Abatiyow](https://github.com/aamir-frc-scouting)
+— [Aamir Abatiyow](https://github.com/AamirAbatiyow)
+
+## Screenshots
+
+<div align="center">
+<table>
+  <tr>
+    <td align="center"><img src="docs/screenshots/01_main_pregame.png" width="220"/><br/><b>Pre-Match Setup</b></td>
+    <td align="center"><img src="docs/screenshots/02_auto.png" width="220"/><br/><b>Autonomous Period</b></td>
+    <td align="center"><img src="docs/screenshots/03_tele.png" width="220"/><br/><b>Teleoperated Period</b></td>
+  </tr>
+  <tr>
+    <td align="center"><img src="docs/screenshots/04_endgame.png" width="220"/><br/><b>Endgame</b></td>
+    <td align="center"><img src="docs/screenshots/05_qr.png" width="220"/><br/><b>QR Code Output</b></td>
+    <td></td>
+  </tr>
+</table>
+
+<sub>Rendered at 10" portrait tablet size, the devices the team scouted on.</sub>
+</div>
 
 ## Features
 
@@ -32,39 +51,18 @@ Sophomore year, I took over as the solo developer. This was my first time owning
 - **Visual starting position**: Interactive field map for robot placement selection
 - **Dark theme**: Reduced eye strain in competition venues
 
-## Screenshots
+## Usage Stats
 
-<table>
-  <tr>
-    <td align="center"><img src="docs/screenshots/01_main_pregame.png" width="180"/><br/><b>Pre-Match</b></td>
-    <td align="center"><img src="docs/screenshots/02_auto.png" width="180"/><br/><b>Autonomous</b></td>
-    <td align="center"><img src="docs/screenshots/03_tele.png" width="180"/><br/><b>Teleoperated</b></td>
-    <td align="center"><img src="docs/screenshots/04_endgame.png" width="180"/><br/><b>Endgame</b></td>
-    <td align="center"><img src="docs/screenshots/05_qr.png" width="180"/><br/><b>QR Output</b></td>
-  </tr>
-</table>
+| Event | Matches | Data Points |
+|:------|--------:|------------:|
+| [Heartland Regional](https://www.thebluealliance.com/event/2023ksla) | 87 | 16,182 |
+| [Smoky Mountains Regional](https://www.thebluealliance.com/event/2023tnkn) | 79 | 14,694 |
+| [Houston Championship — Johnson Division](https://www.thebluealliance.com/event/2023joh) | 146 | 27,156 |
+| **Total** | **312** | **58,032** |
 
-<sub>Screenshots rendered via <a href="https://github.com/cashapp/paparazzi">Paparazzi</a> layout testing. The QR code contains a sample payload for demo team 99901.</sub>
+<sub>Data points = matches × 6 robots/match × 31 fields. See [Team 1730's 2023 season](https://www.thebluealliance.com/team/1730/2023) on The Blue Alliance.</sub>
 
 ## Architecture
-
-### Screen Flow
-
-```
-MainActivity (Pre-match)
-    ↓
-AutoActivity (Autonomous Period)
-    ↓
-TeleActivity (Teleoperated Period)
-    ↓
-EndgameActivity (Endgame Period)
-    ↓
-PopupActivity (Confirmation)
-    ↓
-QrActivity (QR Code Display)
-    ↓
-[Scout scans QR → Excel macro imports data]
-```
 
 ### QR-to-Excel Data Pipeline
 
@@ -86,6 +84,24 @@ flowchart LR
         G --> H[Populate<br/>data row]
         H --> I[Analysis tabs<br/>by team/match]
     end
+```
+
+### Screen Flow
+
+```
+MainActivity (Pre-match)
+    ↓
+AutoActivity (Autonomous Period)
+    ↓
+TeleActivity (Teleoperated Period)
+    ↓
+EndgameActivity (Endgame Period)
+    ↓
+PopupActivity (Confirmation)
+    ↓
+QrActivity (QR Code Display)
+    ↓
+[Scout scans QR → Excel macro imports data]
 ```
 
 ### QR Payload Schema (31 Fields)
@@ -166,39 +182,6 @@ flowchart LR
 }
 ```
 
-## 2023 Season Usage Stats
-
-<table>
-<tr>
-<td>
-
-### Events Scouted
-
-| Event | Matches | Data Points |
-|:------|--------:|------------:|
-| [Heartland Regional](https://www.thebluealliance.com/event/2023ksla) | 87 | 16,182 |
-| [Smoky Mountains Regional](https://www.thebluealliance.com/event/2023tnkn) | 79 | 14,694 |
-| [Houston Champs — Johnson Division](https://www.thebluealliance.com/event/2023joh) | 146 | 27,156 |
-
-</td>
-<td>
-
-### Season Totals
-
-| Metric | Count |
-|:-------|------:|
-| Events | 3 |
-| Matches | 312 |
-| Robot Scouts | 1,872 |
-| Fields per Scout | 31 |
-| **Total Data Points** | **58,032** |
-
-</td>
-</tr>
-</table>
-
-<sub>Robot scouts = matches × 6 robots/match. Data points = scouts × 31 fields.</sub>
-
 ## Build Instructions
 
 ### Requirements
@@ -254,7 +237,8 @@ This app was the starting point. Each season I iterated on what worked and rebui
 |--------|-----|-------|-------|
 | 2024 | [Match Scouting](https://github.com/aamir-frc-scouting/frc-scouting-app-2024) | Java/Android | 5 events, 55K data points |
 | 2024 | [Pit Scouting](https://github.com/aamir-frc-scouting/frc-pit-scouting-app-2024) | Java/Android | 230 teams scouted |
-| 2025 | [Match + Pit Suite](https://github.com/aamir-frc-scouting/frc-scouting-app-2025) | Dart/Flutter + Python + SQLite | Cross-platform rewrite |
+| 2025 | [Match Scouting](https://github.com/aamir-frc-scouting/frc-scouting-app-2025) | Dart/Flutter + Python + SQLite | Cross-platform rewrite |
+| 2025 | [Pit Scouting](https://github.com/aamir-frc-scouting/frc_pit_scouting_app_2025) | Dart/Flutter + Python + SQLite | Cross-platform rewrite |
 
 The 2025 rewrite kept the QR transfer but replaced Excel with SQLite: Flutter apps generate the QR, and a Python intake app scans, validates, and inserts each record so strategy questions become SQL queries.
 
@@ -277,4 +261,10 @@ This repository does not currently have a license. Please contact the author bef
 
 ---
 
-*Part of the [FRC Team 1730 Scouting Suite](https://github.com/aamir-frc-scouting)*
+<div align="center">
+
+**Part of the [Team 1730 scouting system](https://github.com/aamir-frc-scouting)**
+
+**2023 Match** · [2024 Match](https://github.com/aamir-frc-scouting/frc-scouting-app-2024) · [2024 Pit](https://github.com/aamir-frc-scouting/frc-pit-scouting-app-2024) · [2025 Match](https://github.com/aamir-frc-scouting/frc-scouting-app-2025) · [2025 Pit](https://github.com/aamir-frc-scouting/frc_pit_scouting_app_2025)
+
+</div>
