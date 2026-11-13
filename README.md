@@ -44,7 +44,7 @@ Sophomore year, I took over as the solo developer. This was my first time owning
   </tr>
 </table>
 
-<sub>Screenshots rendered via <a href="https://github.com/cashapp/paparazzi">Paparazzi</a> layout testing. The QR screen shows the placeholder image; in actual use, it displays the generated QR code.</sub>
+<sub>Screenshots rendered via <a href="https://github.com/cashapp/paparazzi">Paparazzi</a> layout testing. The QR code contains a sample payload for demo team 99901.</sub>
 
 ## Architecture
 
@@ -254,9 +254,9 @@ This app was the starting point. Each season I iterated on what worked and rebui
 |--------|-----|-------|-------|
 | 2024 | [Match Scouting](https://github.com/aamir-frc-scouting/frc-scouting-app-2024) | Java/Android | 5 events, 55K data points |
 | 2024 | [Pit Scouting](https://github.com/aamir-frc-scouting/frc-pit-scouting-app-2024) | Java/Android | 230 teams scouted |
-| 2025 | [Match + Pit Suite](https://github.com/aamir-frc-scouting/frc-scouting-app-2025) | **Dart/Flutter + SQL** | Cross-platform rewrite |
+| 2025 | [Match + Pit Suite](https://github.com/aamir-frc-scouting/frc-scouting-app-2025) | Dart/Flutter + Python + SQLite | Cross-platform rewrite |
 
-The 2025 rewrite replaced QR+Excel with a proper SQL database — the result of everything I learned building these apps.
+The 2025 rewrite kept the QR transfer but replaced Excel with SQLite: Flutter apps generate the QR, and a Python intake app scans, validates, and inserts each record so strategy questions become SQL queries.
 
 ## Tech Stack
 
