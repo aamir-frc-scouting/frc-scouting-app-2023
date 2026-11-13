@@ -13,17 +13,15 @@ import org.junit.Test
 
 class ScreenshotTest {
 
-    // 10.1" tablet in landscape (2560x1600 px at xhdpi = 1280x800 dp)
-    // This matches the fixed dp layouts Team 1730 designed for scouting tablets
-    // Layout analysis: 550dp field image + 275dp form fields + margins = ~850dp min width
-    private val tabletLandscape = DeviceConfig.NEXUS_10.copy(
-        screenWidth = DeviceConfig.NEXUS_10.screenHeight,  // swap for landscape
-        screenHeight = DeviceConfig.NEXUS_10.screenWidth,
-        orientation = ScreenOrientation.LANDSCAPE
+    // 10.1" tablet in portrait (1600x2560 px at xhdpi = 800x1280 dp)
+    // Team 1730's scouting tablets were portrait-locked
+    // Layout analysis: 550dp field image fits in 800dp width with margins
+    private val tabletPortrait = DeviceConfig.NEXUS_10.copy(
+        orientation = ScreenOrientation.PORTRAIT
     )
 
     @get:Rule
-    val paparazzi = Paparazzi(deviceConfig = tabletLandscape)
+    val paparazzi = Paparazzi(deviceConfig = tabletPortrait)
 
     @Test
     fun main_pregame() {
