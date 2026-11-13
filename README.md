@@ -34,22 +34,17 @@ Sophomore year, I took over as the solo developer. This was my first time owning
 
 ## Screenshots
 
-<details>
-<summary><b>📱 Click to expand app screens</b></summary>
+<table>
+  <tr>
+    <td align="center"><img src="docs/screenshots/01_main_pregame.png" width="180"/><br/><b>Pre-Match</b></td>
+    <td align="center"><img src="docs/screenshots/02_auto.png" width="180"/><br/><b>Autonomous</b></td>
+    <td align="center"><img src="docs/screenshots/03_tele.png" width="180"/><br/><b>Teleoperated</b></td>
+    <td align="center"><img src="docs/screenshots/04_endgame.png" width="180"/><br/><b>Endgame</b></td>
+    <td align="center"><img src="docs/screenshots/05_qr.png" width="180"/><br/><b>QR Output</b></td>
+  </tr>
+</table>
 
-<br>
-
-> Screenshots can be added to `docs/screenshots/` via Android Studio's layout preview or device capture.
-> 
-> **Expected files:** `main.png`, `auto.png`, `tele.png`, `endgame.png`, `qr.png`
-
-<!-- Uncomment when screenshots are added:
-| Pre-Match | Autonomous | Teleoperated | Endgame | QR Output |
-|:---------:|:----------:|:------------:|:-------:|:---------:|
-| ![Main](docs/screenshots/main.png) | ![Auto](docs/screenshots/auto.png) | ![Tele](docs/screenshots/tele.png) | ![Endgame](docs/screenshots/endgame.png) | ![QR](docs/screenshots/qr.png) |
--->
-
-</details>
+<sub>Screenshots rendered via <a href="https://github.com/cashapp/paparazzi">Paparazzi</a> layout testing. The QR screen shows the placeholder image; in actual use, it displays the generated QR code.</sub>
 
 ## Architecture
 
@@ -208,9 +203,9 @@ flowchart LR
 
 ### Requirements
 
-- **Android Studio** Dolphin (2021.3.1) or later
-- **JDK 8–17** (JDK 21+ incompatible with Gradle 7.2)
-- **Android SDK** with API 33 (compile) and API 21+ (minimum)
+- **Android Studio** Hedgehog (2023.1.1) or later
+- **JDK 17+** (JDK 21 supported)
+- **Android SDK** with API 34 (compile) and API 21+ (minimum)
 
 ### Steps
 
@@ -267,11 +262,12 @@ The 2025 rewrite replaced QR+Excel with a proper SQL database — the result of 
 
 | Component | Technology |
 |-----------|------------|
-| Language | Java 8 |
+| Language | Java 17 |
 | Platform | Android (API 21+) |
 | UI | ConstraintLayout, Material Components |
 | QR Generation | ZXing (via local QRGenearator module) |
-| Build System | Gradle 7.2, AGP 7.1.0 |
+| Build System | Gradle 8.6, AGP 8.3.2 |
+| Screenshot Tests | [Paparazzi](https://github.com/cashapp/paparazzi) 1.3.4 |
 | Data Format | JSON encoded in QR |
 | Data Import | Excel VBA macros (external) |
 
